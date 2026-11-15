@@ -138,7 +138,7 @@ function seed(){
   };
 }
 /* وضع السيرفر: إذا فُتحت الصفحة من وكيل الأصيل (http://localhost:8095) تُحفظ البيانات على الجهاز في data\db.json */
-const SERVER=location.protocol.startsWith('http');
+const SERVER=location.protocol.startsWith('http')&&/^(localhost|127.0.0.1)$/.test(location.hostname);
 let _saveT=null,_bal=null,_subIx=null,_lastPay=null,_billed=null;
 function norm0(){
   ['notices','bank','invoices','payments','runs','fuel','maint','expenses'].forEach(k=>DB[k]=DB[k]||[]);
